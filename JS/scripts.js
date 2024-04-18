@@ -96,7 +96,7 @@ function startLoop(){
     randomPersonStarts()
     startPlayerCountdown()
     startBotCountdown()
-    
+    disableGameStartBtn()
 }
 function whichPlayer(person){
     if(person == 0){
