@@ -3,6 +3,7 @@
     font-weight: bold;
     color: white;
     background-color: #1B2837;
+    user-select: none;
 }
 .circle {
     border: 25px solid #EE6677;
@@ -44,6 +45,8 @@
     background-color: #101B27;
     margin: auto;
     display: flex;
+    border: 3px solid rgb(113, 223, 80);
+    border-radius: 10px;
 }
 .gameBoard {
     background-color: #6B7885;
@@ -69,15 +72,17 @@
     display: flex;
     justify-content: center;
     margin-bottom: 5px;
+    gap: 5px;
 }
 .temp {
     display: none;
 }
 .player, .bot {
-    width: 450px;
-    display: inline-flex;
-    justify-content: space-around;
-    align-items: center;
+    width: 90%; 
+    max-width: 450px; 
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
     font-size: 22px;
 }
 .playerName, .botName {
@@ -111,15 +116,14 @@
     display: block;
 }
 .startGame {
-    position: absolute;
-    top: 170px;
-    left: 30px;
+    position: relative;
     margin: 0;
     border: none;
     background-color: rgb(113, 223, 80);
     color: rgb(14, 10, 31);
     font-size: 40px;
     border-radius: 10px;
+    margin-top: 10px;
 }
 .startGame_hover:hover {
     background-color: rgb(14, 10, 31);
@@ -180,4 +184,174 @@
 }
 #resetBtn:active {
     border: 7px solid rgb(113, 223, 80);
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+    margin: 10px;
+  }
+ 
+.toggle-switch .toggle-input {
+  display: none;
+}
+
+.toggle-switch .toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 24px;
+  background-color:rgb(16, 27, 39);
+  border-radius: 34px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-switch .toggle-label::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+.toggle-switch .toggle-input:checked + .toggle-label {
+  background-color: rgb(113, 223, 80);
+}
+
+.toggle-switch .toggle-input:checked + .toggle-label::before {
+  transform: translateX(16px);
+}
+
+.toggle-switch.light .toggle-label {
+  background-color: #BEBEBE;
+}
+
+.toggle-switch.light .toggle-input:checked + .toggle-label {
+  background-color: #9B9B9B;
+}
+
+.toggle-switch.light .toggle-input:checked + .toggle-label::before {
+  transform: translateX(6px);
+}
+
+.toggle-switch.dark .toggle-label {
+  background-color: #4B4B4B;
+}
+
+.toggle-switch.dark .toggle-input:checked + .toggle-label {
+  background-color: #717171;
+}
+
+.toggle-switch.dark .toggle-input:checked + .toggle-label::before {
+  transform: translateX(16px);
+}
+.sideBar{
+    background-color: rgb(27, 40, 55);
+    width: 350px;
+    position: absolute;
+    top: 0;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    top: 150px;
+    border: 3px solid rgb(113, 223, 80);
+    border-radius: 10px;
+    gap: 10px;
+}
+input {
+    display: none;
+}
+.toggleText{
+    font-size: 20px;
+}
+.botSwitch {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin: 0;
+}
+.timerSelectors{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+.timerSelectors button{
+    width: 50px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    margin: 0;
+    background-color: rgb(16, 27, 39);
+}
+@media screen and (max-width: 768px) {
+    .sideBar{
+        position: relative;
+        margin: auto;
+    }
+    .gameBox{
+        width: 700px;
+        height: 400px;
+    }
+    .gameBoard{
+        width: 290px;
+        row-gap: 10px;
+    }
+    .gameBoard button{
+        width: 90px;
+        height: 90px;
+    }
+    .player, .bot{
+        font-size: 14px;
+        gap: 7px;
+    }
+    .bot {
+        justify-content: start;
+    }
+    .player {
+        justify-content: end;
+    }
+    .circle{
+        width: 25px;
+        height: 25px;
+        border: 12px solid #EE6677;
+    }
+    .cross{
+        width: 40px;
+    }
+    .cross::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+        border-radius: 20px;
+    }
+      
+    .cross::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+        border-radius: 20px;
+    }
+    .cross::after, .cross::before{
+        width: 60px;
+        height: 17px;
+    }
+    .players img{
+        width: 70px;
+        height: 70px;
+    }
+    .botScore, .playerScore{
+        font-size: 20px;
+    }
 }
